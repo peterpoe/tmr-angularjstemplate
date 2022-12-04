@@ -1,0 +1,96 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "AngularJS Template",
+  "scopeName": "text.html.angularjstemplate",
+  "injections": {
+    "text.html - comment, meta.attribute string.quoted": {
+      "comment": "Markup in html text and in attributes (i.e.: {{expression}})",
+      "patterns": [{ "include": "#angularjs-markup" }]
+    },
+    "L:meta.attribute": {
+      "comment": "Known attributes with binding (i.e.: ng-click=\"expression\")",
+      "patterns": [{ "include": "#angularjs-directive" }]
+    },
+    "meta.attribute string.quoted": {
+      "comment": "Unknown attributes with auto-detectable binding (i.e.: foo=\"$ctrl.expression\")",
+      "patterns": [{ "include": "#angularjs-attribute" }]
+    }
+  },
+  "patterns": [{ "include": "text.html.basic" }],
+  "repository": {
+    "angularjs-directive": {
+      "comment": "Attributes that start with ng-, md- or tmr-",
+      "patterns": [
+        {
+          "name": "meta.embedded.line.angularjstemplate",
+          "match": "((?<=(ng|tmr|md)-[^\\x{0020}\"'<>/=\\x{0000}-\\x{001F}\\x{007F}-\\x{009F}\\x{FDD0}-\\x{FDEF}\\x{FFFE}\\x{FFFF}\\x{1FFFE}\\x{1FFFF}\\x{2FFFE}\\x{2FFFF}\\x{3FFFE}\\x{3FFFF}\\x{4FFFE}\\x{4FFFF}\\x{5FFFE}\\x{5FFFF}\\x{6FFFE}\\x{6FFFF}\\x{7FFFE}\\x{7FFFF}\\x{8FFFE}\\x{8FFFF}\\x{9FFFE}\\x{9FFFF}\\x{AFFFE}\\x{AFFFF}\\x{BFFFE}\\x{BFFFF}\\x{CFFFE}\\x{CFFFF}\\x{DFFFE}\\x{DFFFF}\\x{EFFFE}\\x{EFFFF}\\x{FFFFE}\\x{FFFFF}\\x{10FFFE}\\x{10FFFF}]+\\s*=\\s*\")(.*?)(?=\")|(?<=(ng|tmr|md)-[^\\x{0020}\"'<>/=\\x{0000}-\\x{001F}\\x{007F}-\\x{009F}\\x{FDD0}-\\x{FDEF}\\x{FFFE}\\x{FFFF}\\x{1FFFE}\\x{1FFFF}\\x{2FFFE}\\x{2FFFF}\\x{3FFFE}\\x{3FFFF}\\x{4FFFE}\\x{4FFFF}\\x{5FFFE}\\x{5FFFF}\\x{6FFFE}\\x{6FFFF}\\x{7FFFE}\\x{7FFFF}\\x{8FFFE}\\x{8FFFF}\\x{9FFFE}\\x{9FFFF}\\x{AFFFE}\\x{AFFFF}\\x{BFFFE}\\x{BFFFF}\\x{CFFFE}\\x{CFFFF}\\x{DFFFE}\\x{DFFFF}\\x{EFFFE}\\x{EFFFF}\\x{FFFFE}\\x{FFFFF}\\x{10FFFE}\\x{10FFFF}]+\\s*=\\s*')(.*?)(?='))",
+          "captures": {
+            "3": {
+              "name": "source.js",
+              "patterns": [{ "include": "#angularjs-expression" }]
+            },
+            "5": {
+              "name": "source.js",
+              "patterns": [{ "include": "#angularjs-expression" }]
+            }
+          }
+        }
+      ]
+    },
+    "angularjs-attribute": {
+      "comment": "Attribute values that start with $ctrl or ::",
+      "patterns": [
+        {
+          "name": "meta.embedded.line.angularjstemplate",
+          "match": "((?<=\")((\\$ctrl|::).*)(?=\"))|((?<=')((\\$ctrl|::).*)(?='))",
+          "captures": {
+            "2": {
+              "name": "source.js",
+              "patterns": [{ "include": "#angularjs-expression" }]
+            },
+            "4": {
+              "name": "source.js",
+              "patterns": [{ "include": "#angularjs-expression" }]
+            }
+          }
+        }
+      ]
+    },
+    "angularjs-expression": {
+      "patterns": [
+        {
+          "match": "\\K::",
+          "name": "keyword.operator.onetimebinding.angularjstemplate"
+        },
+        {
+          "include": "source.js"
+        }
+      ]
+    },
+    "angularjs-markup": {
+      "patterns": [
+        {
+          "name": "meta.embedded.block.angularjstemplate",
+          "begin": "{{",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.angularjstemplate"
+            }
+          },
+          "end": "}}",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.angularjstemplate"
+            }
+          },
+          "contentName": "source.js",
+          "patterns": [
+            {
+              "include": "#angularjs-expression"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

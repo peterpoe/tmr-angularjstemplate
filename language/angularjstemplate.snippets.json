@@ -1,0 +1,83 @@
+{
+	"tmrResourceFilter": {
+		"prefix": "<tmr-resource-filter>",
+		"body": [
+			"<tmr-resource-filter",
+			"  label=\"$1\"",
+			"  property=\"$2\"",
+			"  type=\"${3|text,number,select,autocomplete,date,bool|}\"$0",
+			"></tmr-resource-filter>"
+		],
+		"description": "Adds a widget to the search form inside <tmr-resource-list>"
+	},
+	"tmrResource": {
+		"prefix": "<tmr-resource>",
+		"body": [
+			"<tmr-resource ng-repeat=\"$1 in \\$ctrl.resources track by $1.id\">",
+			"  <tmr-resource-td>{{::$1.$2}}</tmr-resource-td>",
+			"</tmr-resource>"
+		],
+		"description": "A <tmr-resource> table row"
+	},
+	"tmrResourceListTh": {
+		"prefix": "<tmr-resource-list-th>",
+		"body": [
+			"<tmr-resource-list-th",
+			"  label=\"${1/(.*)/${1:/upcase}/}\"",
+			"  order-by=\"${2/(.*)/${1:/upcase}/}\"",
+			"></tmr-resource-list-th>"
+		],
+		"description": "A <tmr-resource-list-th> table header"
+	},
+	"tmrResourceTd": {
+		"prefix": "<tmr-resource-td>",
+		"body": [
+			"<tmr-resource-td>{{::$1}}</tmr-resource-td>"
+		],
+		"description": "A cell inside a <tmr-resource> table row"
+	},
+	"mdIcon": {
+		"prefix": "<md-icon>",
+		"body": [
+			"<md-icon class=\"${1|o-add-1,o-add-circle-1,o-add-circle-2,o-add-layer-1,o-agenda-1,o-angle-brackets-1,o-angle-down-1,o-angle-down-2,o-angle-down-circle-1,o-angle-left-1,o-angle-left-circle-1,o-angle-right-1,o-angle-right-circle-1,o-angle-up-1,o-angle-up-2,o-angle-up-circle-1,o-arrow-left-1,o-attachment-1,o-bin-1,o-cellular-signal-1,o-checked-circle-1,o-checkmark-1,o-clipboard-1,o-close-1,o-configuration-1,o-control-1,o-copy-1,o-data-content-1,o-delete-circle-1,o-download-1,o-edit-1,o-exit-1,o-eye-1,o-filter-data-1,o-filter-data-2,o-gear-1,o-grid-layout-1,o-home-button-1,o-important-warning-1,o-key-1,o-lock-1,o-lock-opened-1,o-mail-1,o-male-user-1,o-menu-1,o-minus-1,o-more-1,o-move-tool-1,o-next-1,o-pause-1,o-pin-1,o-play-1,o-play-2,o-print-1,o-priority-warning-1,o-question-1,o-question-help-1,o-reload-1,o-rfid-signal-1,o-rotate-right-1,o-router-1,o-search-1,o-share-1,o-shutdown-1,o-sorting-1,o-text-search-1,o-tick-sign-1,o-time-1,o-tv-screen-1,o-unavailable-1,o-upload-1,o-user-1,o-wireless-1|}$0\"></md-icon>"
+		]
+	},
+	"mdButton": {
+		"prefix": "<md-button>",
+		"body": [
+			"<md-button",
+			"  class=\"${1|md-raised,md-primary,md-accent|}\"",
+			"  ${2|ng-click,ui-sref|}=\"$3\"",
+			">",
+			"  {{'$0' | translate}}",
+		  "</md-button>"
+		]
+	},
+	"mdIconButton": {
+		"prefix": "<md-icon-button>",
+		"body": [
+			"<md-button",
+			"  class=\"md-icon-button$1\"",
+			"  ${2|ng-click,ui-sref|}=\"$3\"",
+			">",
+			"  <md-tooltip>{{'${4/(.*)/${1:/upcase}/}' | translate}}</md-tooltip>",
+			"  <md-icon class=\"${5|o-add-1,o-add-circle-1,o-add-circle-2,o-add-layer-1,o-agenda-1,o-angle-brackets-1,o-angle-down-1,o-angle-down-2,o-angle-down-circle-1,o-angle-left-1,o-angle-left-circle-1,o-angle-right-1,o-angle-right-circle-1,o-angle-up-1,o-angle-up-2,o-angle-up-circle-1,o-arrow-left-1,o-attachment-1,o-bin-1,o-cellular-signal-1,o-checked-circle-1,o-checkmark-1,o-clipboard-1,o-close-1,o-configuration-1,o-control-1,o-copy-1,o-data-content-1,o-delete-circle-1,o-download-1,o-edit-1,o-exit-1,o-eye-1,o-filter-data-1,o-filter-data-2,o-gear-1,o-grid-layout-1,o-home-button-1,o-important-warning-1,o-key-1,o-lock-1,o-lock-opened-1,o-mail-1,o-male-user-1,o-menu-1,o-minus-1,o-more-1,o-move-tool-1,o-next-1,o-pause-1,o-pin-1,o-play-1,o-play-2,o-print-1,o-priority-warning-1,o-question-1,o-question-help-1,o-reload-1,o-rfid-signal-1,o-rotate-right-1,o-router-1,o-search-1,o-share-1,o-shutdown-1,o-sorting-1,o-text-search-1,o-tick-sign-1,o-time-1,o-tv-screen-1,o-unavailable-1,o-upload-1,o-user-1,o-wireless-1|}\"></md-icon>",
+		  "</md-button>"
+		]
+	},
+	"$ctrl": {
+		"prefix": "$ctrl",
+		"body": "\\$ctrl.$1",
+		"description": "Controller"
+	},
+	"{{ 'STRING' | translate}}": {
+		"prefix": "translate",
+		"body": "{{'${1/(.*)/${1:/upcase}/}' | translate}}",
+		"description": "Angular Translate"
+	},
+	"<span translate>": {
+		"prefix": "translate",
+		"body": "<span translate>${1/(.*)/${1:/upcase}/}</span>",
+		"description": "Angular Translate"
+	}
+}

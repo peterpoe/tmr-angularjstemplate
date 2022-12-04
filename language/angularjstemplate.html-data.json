@@ -1,0 +1,968 @@
+{
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "ng-form",
+      "description": "Helper directive that makes it possible to create control groups inside a form directive. These \"child forms\" can be used, for example, to determine the validity of a sub-group of controls.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngForm",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngForm"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-input-container",
+      "description": "`<md-input-container>` is the parent of any input or textarea element. It can also optionally wrap `<md-select>` elements so that they will be formatted for use in a form. If you need a box with the same spacing inside a form, use the class `tmr-input-container`. Classes for style variants:\n* `md-block`\n* `tmr-compact`",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdInputContainer"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/input"
+        }
+      ],
+      "attributes": [
+        { "name": "md-is-error" },
+        { "name": "md-no-float" },
+        { "name": "layout" }
+      ]
+    },
+    {
+      "name": "md-icon",
+      "description": "The `md-icon` directive adds font-based Orion Icons to TMR. Classes for size variants:\n* `tmr-icon-24`\n* `tmr-icon-32`\n* `tmr-icon-64`\n* `tmr-icon-160`",
+      "references": [
+        {
+          "name": "Icons",
+          "url": "https://bitbucket.org/temera/tmr-4-frontend/src/develop/src/js/tmr/icons.scss"
+        },
+        {
+          "name": "Orion Icon Library",
+          "url": "https://orioniconlibrary.com/app"
+        },
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdIcon"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/icon"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-button",
+      "description": "If you supply a `href` or `ng-href` attribute, it will become an `<a>` element. Otherwise, it will become a `<button>` element. To navigate between TMR Routes use `ui-sref`. Several classes to alter the appearance of buttons are available:\n* `md-[primary|accent|warn]`\n* `md-hue-[1|2|3]`\n* `md-icon-button`\n* `tmr-icon-text-button`\n* `is-big`\n* `is-fullwidth`",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdButton"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/button"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-content",
+      "description": "The `<md-content>` directive is a container element useful for scrollable content. It achieves this by setting the CSS `overflow` property to `auto` so that content can properly scroll.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdContent"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/content"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-card",
+      "description": "The `<md-card>` directive is a container element used within `<md-content>` containers.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdCard"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/card"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-radio-group",
+      "description": "The `<md-radio-group>` directive identifies a grouping container for the 1..n grouped radio buttons; specified using nested `<md-radio-button>` elements.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdRadioGroup"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/radioButton"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-radio-button",
+      "description": "The `<md-radio-button>` directive is the child directive required to be used within `<md-radio-group>` elements.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdRadioButton"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/radioButton"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-sidenav",
+      "description": "A Sidenav component that can be opened and closed programmatically.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdSidenav"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/sidenav"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-progress-circular",
+      "description": "Progress spinner. To use in a TMR page wrap it in a `div` with a `page-loader` class.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdProgressCircular"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/progressCircular"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-progress-linear",
+      "description": "Progress loadbar.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdProgressLinear"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/progressLinear"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-autocomplete",
+      "description": "`<md-autocomplete>` is a special input component with a drop-down of all possible matches to a custom query. This component allows you to provide real-time suggestions as the user types in the input area. Classes for style variants:\n* `tmr-compact`",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdAutocomplete"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/autocomplete"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-chips",
+      "description": "`<md-chips>` is an input component for building lists of strings or objects. The list items are displayed as 'chips'. This component can make use of an `<input>` element or an `<md-autocomplete>` element.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdChips"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/chips"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-chip",
+      "description": "`<md-chip>` is a component used within `<md-chips>`. It is responsible for rendering an individual chip.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdChip"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/chips"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-tooltip",
+      "description": "Tooltips are used to describe elements that are interactive and primarily graphical (not textual). Place a `<md-tooltip>` as a child of the element it describes.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdTooltip"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/tooltip"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-list",
+      "description": "The `<md-list>` directive is a list container for 1..n `<md-list-item>` tags.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdList"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/list"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-list-item",
+      "description": "A `md-list-item` element can be used to represent some information in a row.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdListItem"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/list"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-checkbox",
+      "description": "The checkbox directive is used like the normal [angular checkbox](https://docs.angularjs.org/api/ng/input/input%5Bcheckbox%5D).",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdCheckbox"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/checkbox"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-datepicker",
+      "description": "`<md-datepicker>` is a component used to select a single date. For date ranges use `<tmr-date-picker-range>`.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdDatepicker"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/datepicker"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-time-picker",
+      "description": "`<md-time-picker>` is a widget to select hours/minutes.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://github.com/classlinkinc/angular-material-time-picker"
+        },
+        {
+          "name": "Demo",
+          "url": "https://codepen.io/mattbajorek/pen/OpGVyv"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-dialog",
+      "description": "The dialog's template must be inside this element. Inside, use an `<md-dialog-content>` element for the dialog's content, and use an `<md-dialog-actions>` element for the dialog's actions.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdDialog"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/dialog"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-toolbar",
+      "description": "Used to place a toolbar in your app. You can change the height of the toolbar by adding either the `md-medium-tall` or `md-tall` class to the toolbar.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdToolbar"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/toolbar"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-switch",
+      "description": "An on/off switch form widget. Should always be styled with class `md-primary`",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdSwitch"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/switch"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-menu",
+      "description": "Menus are elements that open when clicked. They are useful for displaying additional options within the context of an action.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdMenu"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/menu"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-menu-item",
+      "description": "A row inside an `md-menu`.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdMenu"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/menu"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-divider",
+      "description": "Dividers group and separate content within lists and page layouts using strong visual and spatial distinctions. This divider is a thin rule, lightweight enough to not distract the user from content.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdDivider"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/divider"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-nav-bar",
+      "description": "The `<md-nav-bar>` directive renders a list of material tabs that can be used for top-level page navigation. Unlike `<md-tabs>`, it has no concept of a tab body and no bar pagination. TMR NavBar components are found in `components/navBar`",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdNavBar"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/navBar"
+        }
+      ],
+      "attributes": [{ "name": "md-selected-nav-item" }]
+    },
+    {
+      "name": "md-nav-item",
+      "description": "`<md-nav-item>` describes a page navigation link within the `<md-nav-bar>` component. It renders an `<md-button>` as the actual link.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdNavItem"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/navBar"
+        }
+      ],
+      "attributes": [{ "name": "md-nav-sref" }]
+    },
+    {
+      "name": "md-option",
+      "description": "Displays an option in a `md-select` box's dropdown menu. Options can be grouped using `md-optgroup` element directives.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdOption"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/select"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "md-select",
+      "description": "Displays a select box, bound to an `ng-model`. Selectable options are defined using the `md-option` element directive. Options can be grouped using the `md-optgroup` element directive.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdSelect"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/select"
+        }
+      ],
+      "attributes": [{ "name": "multiple" }]
+    },
+    {
+      "name": "md-slider",
+      "description": "The `<md-slider>` component allows the user to choose from a range of values.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdSlider"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/slider"
+        }
+      ],
+      "attributes": [
+        { "name": "step" },
+        { "name": "min" },
+        { "name": "max" },
+        { "name": "round" },
+        { "name": "step" },
+        { "name": "step" },
+        { "name": "md-discrete" },
+        { "name": "md-vertical" },
+        { "name": "md-invert" }
+      ]
+    }
+  ],
+  "globalAttributes": [
+    {
+      "name": "ng-if",
+      "description": "The `ngIf` directive removes or recreates a portion of the DOM tree based on an `{expression}`.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngIf",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngIf"
+        }
+      ]
+    },
+    {
+      "name": "ng-model",
+      "description": "The `ngModel` directive binds an `input`, `select`, `textarea` (or custom form control) to a property on the scope.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngModel",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngModel"
+        }
+      ]
+    },
+    {
+      "name": "ng-model-options",
+      "description": "This directive allows you to modify the behaviour of `ngModel` directives within your application. You can specify an `ngModelOptions` directive on any element. All `ngModel` directives will use the options of their nearest `ngModelOptions` ancestor.\n\nExample: `{ allowInvalid: true, updateOn: 'default', debounce: 0 }`",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngModelOptions",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngModelOptions"
+        }
+      ]
+    },
+    {
+      "name": "ng-transclude",
+      "description": "Directive that marks the insertion point for the transcluded DOM of the nearest parent directive that uses transclusion.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngTransclude",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngTransclude"
+        }
+      ]
+    },
+    {
+      "name": "ng-repeat",
+      "description": "The `ngRepeat` directive instantiates a template once per item from a collection. Each template instance gets its own scope, where the given loop variable is set to the current collection item, and `$index` is set to the item index or key.\n\nExample:\n`ng-repeat=\"resource in $ctrl.resources track by resource.id\"`",
+      "values": [
+        {
+          "name": "resource in $ctrl.resources track by resource.id"
+        },
+        {
+          "name": "(key, label) in $ctrl.options track by key"
+        }
+      ],
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngRepeat",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngRepeat"
+        }
+      ]
+    },
+    {
+      "name": "ng-class",
+      "description": "The `ngClass` directive allows you to dynamically set CSS classes on an HTML element by databinding an expression that represents all classes to be added.\n\nExample: `ng-class=\"{ 'is-bold': true }\"`",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngClass",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngClass"
+        }
+      ]
+    },
+    {
+      "name": "ng-style",
+      "description": "The ngStyle directive allows you to set CSS style on an HTML element conditionally.\n\nExample: `ng-style=\"{ marginTop: '8px' }\"`",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngStyle",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngStyle"
+        }
+      ]
+    },
+    {
+      "name": "ng-click",
+      "description": "The `ngClick` directive allows you to specify custom behavior when an element is clicked.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngClick",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngClick"
+        }
+      ],
+      "valueSet": "function"
+    },
+    {
+      "name": "ng-keypress",
+      "description": "Specify custom behavior on keypress event.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngKeypress",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngKeypress"
+        }
+      ]
+    },
+    {
+      "name": "ng-disabled",
+      "description": "This directive sets the disabled attribute on the element (typically a form control, e.g. `input`, `button`, `select` etc.) if the expression inside `ngDisabled` evaluates to truthy.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngDisabled",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngDisabled"
+        }
+      ]
+    },
+    {
+      "name": "ng-show",
+      "description": "The `ngShow` directive shows or hides the given HTML element based on the expression provided.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngShow",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngShow"
+        }
+      ],
+      "valueSet": "boolean"
+    },
+    {
+      "name": "ng-hide",
+      "description": "The `ngHide` directive shows or hides the given HTML element based on the expression provided.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngHide",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngHide"
+        }
+      ],
+      "valueSet": "boolean"
+    },
+    {
+      "name": "ng-change",
+      "description": "Evaluate the given expression when the user changes the input.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngChange",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngChange"
+        }
+      ]
+    },
+    {
+      "name": "ng-required",
+      "description": "`ngRequired` adds the required validator to `ngModel`. It is most often used for `input` and `select` controls, but can also be applied to custom controls.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngRequired",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngRequired"
+        }
+      ]
+    },
+    {
+      "name": "ng-messages",
+      "description": "`ngMessages` is a directive that is designed to show and hide messages based on the state of a key/value object that it listens on. The directive itself complements error message reporting with the `ngModel $error` object (which stores a key/value state of validation errors).",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ngMessages/directive/ngMessages",
+          "url": "https://docs.angularjs.org/api/ngMessages/directive/ngMessages"
+        }
+      ]
+    },
+    {
+      "name": "ng-repeat-start",
+      "description": "To repeat a series of elements instead of just one parent element, `ngRepeat` (as well as other ng directives) supports extending the range of the repeater by defining explicit start and end points by using `ng-repeat-start` and `ng-repeat-end` respectively. The `ng-repeat-start` directive works the same as `ng-repeat`, but will repeat all the HTML code (including the tag it's defined on) up to and including the ending HTML tag where `ng-repeat-end` is placed.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngRepeat#special-repeat-start-and-end-points",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngRepeat#special-repeat-start-and-end-points"
+        }
+      ]
+    },
+    {
+      "name": "ng-repeat-end",
+      "description": "To repeat a series of elements instead of just one parent element, `ngRepeat` (as well as other ng directives) supports extending the range of the repeater by defining explicit start and end points by using `ng-repeat-start` and `ng-repeat-end` respectively. The `ng-repeat-start` directive works the same as `ng-repeat`, but will repeat all the HTML code (including the tag it's defined on) up to and including the ending HTML tag where `ng-repeat-end` is placed.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngRepeat#special-repeat-start-and-end-points",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngRepeat#special-repeat-start-and-end-points"
+        }
+      ]
+    },
+    {
+      "name": "ng-include",
+      "description": "Fetches, compiles and includes an external HTML fragment.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngInclude",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngInclude"
+        }
+      ]
+    },
+    {
+      "name": "ng-src",
+      "description": "Using AngularJS markup like `{{hash}}` in a src attribute doesn't work right: The browser will fetch from the URL with the literal text `{{hash}}` until AngularJS replaces the expression inside `{{hash}}`. The `ngSrc` directive solves this problem.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngSrc",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngSrc"
+        }
+      ]
+    },
+    {
+      "name": "ng-cloak",
+      "description": "The `ngCloak` directive is used to prevent the AngularJS html template from being briefly displayed by the browser in its raw (uncompiled) form while your application is loading. Use this directive to avoid the undesirable flicker effect caused by the html template display."
+    },
+    {
+      "name": "ng-switch",
+      "description": "The `ngSwitch` directive is used to conditionally swap DOM structure on your template based on a scope expression.\n\nExample: `<div ng-switch=\"expression\"><div ng-switch-when=\"matchValue1\">...</div><div ng-switch-when=\"matchValue2\">...</div><div ng-switch-default>...</div></div>`",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngSwitch",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngSwitch"
+        }
+      ]
+    },
+    {
+      "name": "ng-value",
+      "description": "Binds the given expression to the value of the element.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngValue",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngValue"
+        }
+      ]
+    },
+    {
+      "name": "ng-controller",
+      "description": "The `ngController` directive attaches a controller class to the view.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngController",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngController"
+        }
+      ]
+    },
+    {
+      "name": "ng-checked",
+      "description": "Sets the checked attribute on the element, if the expression inside `ngChecked` is truthy.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngChecked",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngChecked"
+        }
+      ],
+      "valueSet": "boolean"
+    },
+    {
+      "name": "ng-init",
+      "description": "The `ngInit` directive allows you to evaluate an expression in the current scope.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngInit",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngInit"
+        }
+      ]
+    },
+    {
+      "name": "ng-maxlength",
+      "description": "`ngMaxlength` adds the maxlength validator to `ngModel`. It is most often used for text-based `input` controls, but can also be applied to custom text-based controls.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngMaxlength",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngMaxlength"
+        }
+      ]
+    },
+    {
+      "name": "ng-minlength",
+      "description": "`ngMinlength` adds the minlength validator to `ngModel`. It is most often used for text-based `input` controls, but can also be applied to custom text-based controls.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngMinlength",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngMinlength"
+        }
+      ]
+    },
+    {
+      "name": "ng-pattern",
+      "description": "`ngPattern` adds the pattern validator to `ngModel`. It is most often used for text-based `input` controls, but can also be applied to custom text-based controls.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngPattern",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngPattern"
+        }
+      ]
+    },
+    {
+      "name": "ng-submit",
+      "description": "Enables binding AngularJS expressions to onsubmit events.\nAdditionally it prevents the default action (which for form means sending the request to the server and reloading the current page), but only if the form does not contain `action`, `data-action`, or `x-action` attributes.",
+      "references": [
+        {
+          "name": "https://docs.angularjs.org/api/ng/directive/ngSubmit",
+          "url": "https://docs.angularjs.org/api/ng/directive/ngSubmit"
+        }
+      ]
+    },
+    {
+      "name": "md-colors",
+      "description": "[Angular Material Theming](https://material.angularjs.org/latest/Theming/01_introduction) `mdColors` directive will apply the theme-based color expression as RGBA CSS style values.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdColors"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/demo/colors"
+        }
+      ]
+    },
+    {
+      "name": "layout",
+      "description": "[Angular Material Layout](https://material.angularjs.org/latest/layout/introduction) Use the `layout` directive on a container element to specify the layout direction for its children: horizontally in a row (`layout=\"row\"`) or vertically in a column (`layout=\"column\"`). Note that `row` is the default layout direction if you specify the `layout` directive without a value.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/layout/container"
+        }
+      ],
+      "values": [{ "name": "row" }, { "name": "column" }]
+    },
+    {
+      "name": "layout-wrap",
+      "description": "[Angular Material Layout](https://material.angularjs.org/latest/layout/introduction) `layout-wrap` allows `flex` children to wrap within the container if the elements use more than 100%.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/layout/options"
+        }
+      ]
+    },
+    {
+      "name": "layout-margin",
+      "description": "[Angular Material Layout](https://material.angularjs.org/latest/layout/introduction) `layout-margin` adds `8px` margin around each flex child. It also adds a `8px` margin to the layout container itself.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/layout/options"
+        }
+      ]
+    },
+    {
+      "name": "layout-padding",
+      "description": "[Angular Material Layout](https://material.angularjs.org/latest/layout/introduction) `layout-padding` adds `8px` padding around each flex child. It also adds a `8px` padding to the layout container itself.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/layout/options"
+        }
+      ]
+    },
+    {
+      "name": "layout-fill",
+      "description": "[Angular Material Layout](https://material.angularjs.org/latest/layout/introduction) `layout-fill` forces the layout element to fill its parent container. ",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/layout/options"
+        }
+      ]
+    },
+    {
+      "name": "layout-align",
+      "description": "[Angular Material Layout](https://material.angularjs.org/latest/layout/introduction) The `layout-align` directive takes two words. The first word says how the children will be aligned in the layout's direction, and the second word says how the children will be aligned perpendicular to the layout's direction. Valid words are `start`, `center`, `end`, `stretch`, `space-around`, `space-between`. Default is `start stretch`.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/layout/alignment"
+        }
+      ],
+      "values": [
+        { "name": "start start" },
+        { "name": "start center" },
+        { "name": "start end" },
+        { "name": "start stretch" },
+        { "name": "center start" },
+        { "name": "center center" },
+        { "name": "center end" },
+        { "name": "center stretch" },
+        { "name": "end start" },
+        { "name": "end center" },
+        { "name": "end end" },
+        { "name": "end stretch" },
+        { "name": "end start" },
+        { "name": "end center" },
+        { "name": "end end" },
+        { "name": "end stretch" },
+        { "name": "space-around start" },
+        { "name": "space-around center" },
+        { "name": "space-around end" },
+        { "name": "space-around stretch" },
+        { "name": "space-between start" },
+        { "name": "space-between center" },
+        { "name": "space-between end" },
+        { "name": "space-between stretch" }
+      ]
+    },
+    {
+      "name": "flex",
+      "description": "[Angular Material Layout](https://material.angularjs.org/latest/layout/introduction) To customize the size and position of elements in a `layout` container, use the `flex`, `flex-order`, and `flex-offset` attributes on the container's child elements. Note that `0` (will grow and shrink as needed) is the default if you specify the `flex` directive without a value.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/layout/children"
+        }
+      ],
+      "values": [
+        { "name": "none" },
+        { "name": "initial" },
+        { "name": "auto" },
+        { "name": "grow" },
+        { "name": "nogrow" },
+        { "name": "noshrink" },
+        { "name": "0" },
+        { "name": "10" },
+        { "name": "20" },
+        { "name": "25" },
+        { "name": "30" },
+        { "name": "33" },
+        { "name": "40" },
+        { "name": "50" },
+        { "name": "60" },
+        { "name": "66" },
+        { "name": "70" },
+        { "name": "75" },
+        { "name": "80" },
+        { "name": "90" },
+        { "name": "100" }
+      ]
+    },
+    {
+      "name": "md-whiteframe",
+      "description": "The md-whiteframe directive allows you to apply an elevation shadow to an element. The attribute values needs to be a number between 1 and 24. If there is no value specified it defaults to 4.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://material.angularjs.org/latest/api/directive/mdWhiteframe"
+        },
+        {
+          "name": "Demo",
+          "url": "https://material.angularjs.org/latest/layout/whiteframe"
+        }
+      ]
+    },
+    {
+      "name": "ui-sref",
+      "description": "[UI Router](https://ui-router.github.io/ng1/docs/latest/index.html) A directive which links to a route (and optionally, parameters) on click. The complete `name` of the route can be provided, or a relative state. Remember that _all_ TMR Routes begin with `app.`.\n\nExamples:\n* Full state: `ui-sref=\"app.report.items.view({ id: item.id })\"`\n* Relative state: `ui-sref=\"^\"` (goes to parent route)",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://ui-router.github.io/ng1/docs/latest/modules/directives.html#uisrefdirective"
+        }
+      ]
+    },
+    {
+      "name": "translate",
+      "description": "[Angular Translate](https://angular-translate.github.io/docs/#/guide) Translates given translation id either through attribute or DOM content. Internally it uses $translate service to translate the translation id. It possible to pass an optional `translate-values` object literal as string into translation id. TMR translation files are in `src/translations`.\n\nExamples:\n* Attribute: `<span translate>OPERATIONS.TAGINFO.TITLE</span>`\n* DOM content: `<span>{{'OPERATIONS.TAGINFO.TITLE' | translate}}</span>`\n* With values: `<span translate translate-values=\"{ count: 4 }\">OPERATIONS.TAGINFO.TITLE</span>`",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://angular-translate.github.io/docs/#/api/pascalprecht.translate.directive:translate"
+        }
+      ]
+    },
+    {
+      "name": "translate-values",
+      "description": "[Angular Translate](https://angular-translate.github.io/docs/#/guide) Translates given translation id either through attribute or DOM content. Internally it uses $translate service to translate the translation id. It possible to pass an optional `translate-values` object literal as string into translation id. TMR translation files are in `src/translations`.\n\nExamples:\n* Attribute: `<span translate>OPERATIONS.TAGINFO.TITLE</span>`\n* DOM content: `<span>{{'OPERATIONS.TAGINFO.TITLE' | translate}}</span>`\n* With values: `<span translate translate-values=\"{ count: 4 }\">OPERATIONS.TAGINFO.TITLE</span>`",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://angular-translate.github.io/docs/#/api/pascalprecht.translate.directive:translate"
+        }
+      ]
+    }
+  ],
+  "valueSets": [
+    { "name": "boolean", "values": [{ "name": "true" }, { "name": "false" }] },
+    { "name": "function", "values": [{ "name": "$ctrl.()" }] }
+  ]
+}
