@@ -1,6 +1,9 @@
 {
   "name": "tmr-angularjstemplate",
   "displayName": "TMR for VSCode",
+  "repository": {
+    "url": "https://github.com/peterpoe/tmr-angularjstemplate"
+  },
   "publisher": "temera",
   "author": {"name": "Gregorio Magini", "email": "gregorio.magini@temera.it"},
   "description": "Utilities for coding Temera TMR® with VSCode",
