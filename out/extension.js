@@ -232,7 +232,7 @@ AngularJsExternalServices.ngMaterialServices = [
     '$mdThemingProvider',
     '$mdToast',
 ];
-AngularJsExternalServices.ngTranslateServices = ['$translate'];
+AngularJsExternalServices.ngTranslateServices = ['$translate', '$translateProvider'];
 class AngularJsHoverProvider extends AngularJsExternalServices {
     async provideHover(document, position) {
         // Shows hover info with link to documentation of

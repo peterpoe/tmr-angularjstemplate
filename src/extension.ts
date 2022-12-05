@@ -293,7 +293,7 @@ class AngularJsExternalServices {
     '$mdThemingProvider',
     '$mdToast',
   ]
-  static ngTranslateServices = ['$translate']
+  static ngTranslateServices = ['$translate', '$translateProvider']
 
   getAngularJSDocumentation(symbolName: string) {
     if (symbolName === '$scope') {
