@@ -47,7 +47,7 @@ function isInjected(symbolName, document) {
 const getTmrComponentDefinition = async function (componentName, token) {
     // fileName is componentName - tmr prefix + .js - Example: tmrResourceForm --> resourceForm.js
     const fileName = `${componentName.replace(/^tmr(.)/, (_m, c) => c.toLowerCase())}.js`;
-    const uris = await vscode.workspace.findFiles(`{src/js/routes/**/${fileName},src/js/components/**/${fileName}},{src/app/routes/**/${fileName},src/app/components/**/${fileName}},{node_modules/tmr-frontend/src/js/routes/**/${fileName},node_modules/tmr-frontend/src/js/components/**/${fileName}}`, undefined, 5, token);
+    const uris = await vscode.workspace.findFiles(`{src/js/routes/**/${fileName},src/js/components/**/${fileName},src/app/routes/**/${fileName},src/app/components/**/${fileName},node_modules/tmr-frontend/src/js/routes/**/${fileName},node_modules/tmr-frontend/src/js/components/**/${fileName}}`, undefined, 5, token);
     if (uris.length === 0) {
         return false;
     }
@@ -116,7 +116,7 @@ class AngularJSDefinitionProvider {
     constructor(context) {
         this.context = context;
     }
-    // Provide definitions for injected AngularJS services
+    // Provide definitions for dependency injections
     async provideDefinition(document, position) {
         const wordRange = document.getWordRangeAtPosition(position);
         if (!wordRange) {

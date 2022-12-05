@@ -69,7 +69,7 @@ const getTmrComponentDefinition = async function (
     c.toLowerCase()
   )}.js`
   const uris = await vscode.workspace.findFiles(
-    `{src/js/routes/**/${fileName},src/js/components/**/${fileName}},{src/app/routes/**/${fileName},src/app/components/**/${fileName}},{node_modules/tmr-frontend/src/js/routes/**/${fileName},node_modules/tmr-frontend/src/js/components/**/${fileName}}`,
+    `{src/js/routes/**/${fileName},src/js/components/**/${fileName},src/app/routes/**/${fileName},src/app/components/**/${fileName},node_modules/tmr-frontend/src/js/routes/**/${fileName},node_modules/tmr-frontend/src/js/components/**/${fileName}}`,
     undefined,
     5,
     token
@@ -181,7 +181,7 @@ class AngularJSDefinitionProvider {
     this.context = context
   }
 
-  // Provide definitions for injected AngularJS services
+  // Provide definitions for dependency injections
   async provideDefinition(
     document: vscode.TextDocument,
     position: vscode.Position
