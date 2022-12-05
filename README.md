@@ -1,6 +1,5 @@
-# AngularJS + TMR Extension for Visual Studio Code
-
-by <gregorio.magini@temera.it>
+# Stylewhere® + AngularJS Extension for Visual Studio Code
+by Temera
 
 ## AngularJS Template language Intellisense
 To use, change Language Mode (⌘K M) and select "AngularJS Template".
@@ -13,7 +12,9 @@ To use, change Language Mode (⌘K M) and select "AngularJS Template".
 
 ## AngularJS Javascript Intellisense
   * Go to Definition of dependency injections of TMR, AngularJS, Angular Material, UI Router and Angular Translate services.
+  * Suggestions of services from AngularJS, Angular Material, UI Router and Angular Translate in injected functions and constructors
 
 ## @todo
   * Go to Definition of TMR directives from templates
   * Autocomplete of `$ctrl` methods from controller in templates
+  * Suggestions of services from TMR in injected functions and constructors

@@ -1,12 +1,13 @@
 {
-  "name": "tmr-angularjstemplate",
-  "displayName": "TMR for VSCode",
+  "name": "stylewhere-angularjs",
+  "displayName": "Stylewhere® + AngularJS",
   "repository": {
     "url": "https://github.com/peterpoe/tmr-angularjstemplate"
   },
   "publisher": "temera",
   "author": {"name": "Gregorio Magini", "email": "gregorio.magini@temera.it"},
-  "description": "Utilities for coding Temera TMR® with VSCode",
+  "description": "VSCode enhancementes for Temera Stylewhere®",
+  "license": "UNLICENSED",
   "version": "0.0.2",
   "engines": {
     "vscode": "^1.73.0"
