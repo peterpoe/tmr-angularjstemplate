@@ -5,12 +5,17 @@
     "url": "https://github.com/peterpoe/tmr-angularjstemplate"
   },
   "publisher": "temera",
-  "author": {"name": "Gregorio Magini", "email": "gregorio.magini@temera.it"},
+  "author": {
+    "name": "Gregorio Magini",
+    "email": "gregorio.magini@temera.it"
+  },
   "description": "VSCode enhancementes for Temera Stylewhere®",
   "license": "UNLICENSED",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "icon": "images/icon.jpg",
-  "categories": ["Other"],
+  "categories": [
+    "Other"
+  ],
   "qna": false,
   "engines": {
     "vscode": "^1.73.0"
@@ -49,7 +54,9 @@
   },
   "contributes": {
     "html": {
-      "customData": ["./language/angularjstemplate.html-data.json"]
+      "customData": [
+        "./language/angularjstemplate.html-data.json"
+      ]
     },
     "languages": [
       {
