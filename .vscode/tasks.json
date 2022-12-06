@@ -8,6 +8,13 @@
 			"problemMatcher": [],
 			"label": "npm: watch",
 			"detail": "tsc -watch -p ./"
+		},
+		{
+			"type": "shell",
+			"command": "vsce package && vsce publish patch",
+			"label": "vsce: publish patch",
+			"detail": "Publish patch on VSCode Marketplace",
+			"problemMatcher": []
 		}
 	]
 }
