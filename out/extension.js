@@ -26,22 +26,22 @@ function isInjected(symbolName, document) {
     // Only define classes and injected symbols
     const symbolPattern = escapeRegExp(symbolName);
     const injectPattern = `/\\\*{1,2}\\s*@ng[Ii]nject\\s*\\*/`;
+    const parametersPattern = `\\((\\s*[^\\s)]+\\s*,)*\\s*${symbolPattern}(\\s*,\\s*\\S+)*\\s*,?\\s*\\)`;
     // Could be
     // an annotated function parameter -> /** @ngInject */ function(foo, bar, baz)
-    // an annotated name function parameter -> /** @ngInject */ function FuncName(foo, bar, baz)
-    // a class constructor parameter --> constructor(foo, bar, baz)
-    //    (@todo check if injected? --> constructor(foo, bar, baz) { 'ngInject')
-    // an annotated arrow function parameter --> /** @ngInject */ (foo, bar, baz) =>
+    // an annotated named function parameter -> /** @ngInject */ function FuncName(foo, bar, baz)
+    // an annotated class constructor parameter --> /** @ngInject */ constructor(foo, bar, baz)
     // a provider $get method -> /** @ngInject */ $get(foo, bar, baz)
-    const pattern1 = `(${injectPattern}\\s*function\\s*\\w*|\\bconstructor\\b|${injectPattern}|${injectPattern}\\s*\\$get)\\s*\\((\\s*[^\\s)]+\\s*,)*\\s*${symbolPattern}(\\s*,\\s*\\S+)*\\s*,?\\s*\\)`;
+    // any annotated parameter list --> /** @ngInject */ (foo, bar, baz)
+    const pattern1 = `(${injectPattern}\\s*function\\s*\\w*|${injectPattern}\\s*(\\bconstructor|\\$get)|${injectPattern})\\s*${parametersPattern}`;
     // an annotated arrow function single parameter --> /** @ngInject */ foo =>
     const pattern2 = `${injectPattern}\\s*${symbolPattern}\\s*=>`;
     // a jsdoc link in a comment --> /** {@link foo} */
     const pattern3 = `\\{@link[^}]*?\\b${symbolPattern}\\b[^{]*?\\}`;
+    // any parameter list followed by string inject --> (foo, bar, baz) { 'ngInject'
+    const pattern4 = `${parametersPattern}\\s*{\\s*'ngInject'`;
     const documentText = document.getText();
-    const isInjected = new RegExp(pattern1).test(documentText) ||
-        new RegExp(pattern2).test(documentText) ||
-        new RegExp(pattern3).test(documentText);
+    const isInjected = new RegExp(`(${pattern1})|(${pattern2})|(${pattern3})|(${pattern4})`).test(documentText);
     return isInjected;
 }
 const getTmrComponentDefinition = async function (componentName, token) {
