@@ -305,10 +305,11 @@ class AngularJsExternalServices {
   }
 
   getUIRouterDocumentation(symbolName: string) {
-    return `UI Router Service: _${symbolName}_  
-    https://ui-router.github.io/ng1/docs/latest/modules/injectables.html#${symbolName
-      .replace('$', '_')
+    const url = `https://ui-router.github.io/ng1/docs/latest/modules/injectables.html#${symbolName
+      .replace(/\$/g, '\\_')
       .toLowerCase()}`
+    return `UI Router Service: _${symbolName}_  
+    [${url}](${url})`
   }
 
   getNgTranslateDocumentation(symbolName: string) {
