@@ -264,16 +264,9 @@ class AngularJsHoverProvider extends AngularJsExternalServices {
     }
 }
 class AngularJsCompletionItemProvider extends AngularJsExternalServices {
-    provideCompletionItems(document, position) {
-        const wordRange = document.getWordRangeAtPosition(position);
-        if (!wordRange) {
-            return;
-        }
-        const word = document.getText(wordRange);
-        if (!isInjected(word, document)) {
-            return;
-        }
-        return new vscode.CompletionList([
+    constructor() {
+        super(...arguments);
+        this.completionList = new vscode.CompletionList([
             ...AngularJsCompletionItemProvider.ngServices.map(label => ({
                 label,
                 description: 'AngularJS',
@@ -299,6 +292,17 @@ class AngularJsCompletionItemProvider extends AngularJsExternalServices {
                 kind: vscode.CompletionItemKind.Function,
             })),
         ]);
+    }
+    provideCompletionItems(document, position) {
+        const wordRange = document.getWordRangeAtPosition(position);
+        if (!wordRange) {
+            return;
+        }
+        const word = document.getText(wordRange);
+        if (!isInjected(word, document)) {
+            return;
+        }
+        return this.completionList;
     }
 }
 function activate(context) {

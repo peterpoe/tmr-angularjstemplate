@@ -360,6 +360,41 @@ class AngularJsHoverProvider extends AngularJsExternalServices {
 }
 
 class AngularJsCompletionItemProvider extends AngularJsExternalServices {
+  completionList = new vscode.CompletionList([
+    ...AngularJsCompletionItemProvider.ngServices.map(label => ({
+      label,
+      description: 'AngularJS',
+      documentation: new vscode.MarkdownString(
+        this.getAngularJSDocumentation(label)
+      ),
+      kind: vscode.CompletionItemKind.Function,
+    })),
+    ...AngularJsCompletionItemProvider.uiRouterServices.map(label => ({
+      label,
+      description: 'UI Router',
+      documentation: new vscode.MarkdownString(
+        this.getUIRouterDocumentation(label)
+      ),
+      kind: vscode.CompletionItemKind.Function,
+    })),
+    ...AngularJsCompletionItemProvider.ngTranslateServices.map(label => ({
+      label,
+      description: 'Angular Translate',
+      documentation: new vscode.MarkdownString(
+        this.getNgTranslateDocumentation(label)
+      ),
+      kind: vscode.CompletionItemKind.Function,
+    })),
+    ...AngularJsCompletionItemProvider.ngMaterialServices.map(label => ({
+      label,
+      description: 'Angular Material',
+      documentation: new vscode.MarkdownString(
+        this.getNgMaterialDocumentation(label)
+      ),
+      kind: vscode.CompletionItemKind.Function,
+    })),
+  ])
+
   provideCompletionItems(
     document: vscode.TextDocument,
     position: vscode.Position
@@ -374,40 +409,7 @@ class AngularJsCompletionItemProvider extends AngularJsExternalServices {
       return
     }
 
-    return new vscode.CompletionList([
-      ...AngularJsCompletionItemProvider.ngServices.map(label => ({
-        label,
-        description: 'AngularJS',
-        documentation: new vscode.MarkdownString(
-          this.getAngularJSDocumentation(label)
-        ),
-        kind: vscode.CompletionItemKind.Function,
-      })),
-      ...AngularJsCompletionItemProvider.uiRouterServices.map(label => ({
-        label,
-        description: 'UI Router',
-        documentation: new vscode.MarkdownString(
-          this.getUIRouterDocumentation(label)
-        ),
-        kind: vscode.CompletionItemKind.Function,
-      })),
-      ...AngularJsCompletionItemProvider.ngTranslateServices.map(label => ({
-        label,
-        description: 'Angular Translate',
-        documentation: new vscode.MarkdownString(
-          this.getNgTranslateDocumentation(label)
-        ),
-        kind: vscode.CompletionItemKind.Function,
-      })),
-      ...AngularJsCompletionItemProvider.ngMaterialServices.map(label => ({
-        label,
-        description: 'Angular Material',
-        documentation: new vscode.MarkdownString(
-          this.getNgMaterialDocumentation(label)
-        ),
-        kind: vscode.CompletionItemKind.Function,
-      })),
-    ])
+    return this.completionList
   }
 }
 
