@@ -18,7 +18,7 @@
   ],
   "qna": false,
   "engines": {
-    "vscode": "^1.73.0"
+    "vscode": "^1.74.0"
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -46,7 +46,6 @@
   ],
   "main": "./out/extension.js",
   "activationEvents": [
-    "onLanguage:angularjstemplate",
     "onLanguage:javascript"
   ],
   "capabilities": {
