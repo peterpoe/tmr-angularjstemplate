@@ -1,4 +1,4 @@
-# Stylewhere® + AngularJS Extension for Visual Studio Code
+# Stylewhere + AngularJS Extension for Visual Studio Code
 by Temera
 
 ## AngularJS HTML Template language Intellisense

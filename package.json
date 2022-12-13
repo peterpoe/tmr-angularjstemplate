@@ -1,6 +1,6 @@
 {
   "name": "stylewhere-angularjs",
-  "displayName": "Stylewhere® + AngularJS",
+  "displayName": "Stylewhere + AngularJS",
   "repository": {
     "url": "https://github.com/peterpoe/tmr-angularjstemplate"
   },
@@ -9,7 +9,7 @@
     "name": "Gregorio Magini",
     "email": "gregorio.magini@temera.it"
   },
-  "description": "VSCode enhancementes for Temera Stylewhere®",
+  "description": "VSCode enhancementes for Temera Stylewhere",
   "license": "UNLICENSED",
   "version": "0.0.5",
   "icon": "images/icon.jpg",
