@@ -230,36 +230,51 @@ class AngularJSDefinitionProvider {
 class AngularJsExternalServices {
   static ngServices = [
     '$anchorScroll',
+    '$anchorScrollProvider',
     '$animate',
     '$animateCss',
+    '$animateProvider',
     '$cacheFactory',
-    '$templateCache',
     '$compile',
+    '$compileProvider',
     '$controller',
+    '$controllerProvider',
     '$document',
     '$exceptionHandler',
     '$filter',
+    '$filterProvider',
+    '$http',
+    '$httpBackend',
     '$httpParamSerializer',
     '$httpParamSerializerJQLike',
-    '$http',
-    '$xhrFactory',
-    '$httpBackend',
+    '$httpProvider',
     '$interpolate',
+    '$interpolateProvider',
     '$interval',
     '$jsonpCallbacks',
     '$locale',
     '$location',
+    '$locationProvider',
     '$log',
+    '$logProvider',
     '$parse',
+    '$parseProvider',
     '$q',
+    '$qProvider',
     '$rootElement',
     '$rootScope',
-    '$sceDelegate',
+    '$rootScopeProvider',
     '$sce',
+    '$sceDelegate',
+    '$sceDelegateProvider',
+    '$sceProvider',
+    '$scope',
+    '$templateCache',
     '$templateRequest',
+    '$templateRequestProvider',
     '$timeout',
     '$window',
-    '$scope',
+    '$xhrFactory',
   ]
 
   static uiRouterServices = [
@@ -301,6 +316,10 @@ class AngularJsExternalServices {
     if (symbolName === '$scope') {
       return `AngularJS Service: _$scope_  
             https://docs.angularjs.org/guide/scope`
+    }
+    if (symbolName.endsWith('Provider')) {
+      return `AngularJS Provider: _${symbolName}_  
+      https://docs.angularjs.org/api/ng/provider/${symbolName}`
     }
     return `AngularJS Service: _${symbolName}_  
           https://docs.angularjs.org/api/ng/service/${symbolName}`
