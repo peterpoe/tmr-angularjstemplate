@@ -25,7 +25,7 @@ function isHTMLTag(document, wordRange) {
 function isInjected(symbolName, document) {
     // Only define classes and injected symbols
     const symbolPattern = escapeRegExp(symbolName);
-    const injectPattern = `/\\\*{1,2}\\s*@ng[Ii]nject\\s*\\*/`;
+    const injectPattern = `/\\*[\\S\\s]*@ng[Ii]nject\\b[\\S\\s]*\\*/`;
     const parametersPattern = `\\((\\s*[^\\s)]+\\s*,)*\\s*${symbolPattern}(\\s*,\\s*\\S+)*\\s*,?\\s*\\)`;
     // Could be
     // an annotated function parameter -> /** @ngInject */ function(foo, bar, baz)
