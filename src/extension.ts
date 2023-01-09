@@ -274,6 +274,7 @@ class AngularJsExternalServices {
     '$mdBottomSheet',
     '$mdColors',
     '$mdCompiler',
+    '$mdCompilerProvider',
     '$mdDateLocaleProvider',
     '$mdDialog',
     '$mdDialogProvider',
