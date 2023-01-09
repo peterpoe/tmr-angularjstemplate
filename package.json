@@ -87,6 +87,10 @@
       {
         "language": "angularjstemplate",
         "path": "./language/angularjstemplate.snippets.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./language/javascript.snippets.json"
       }
     ],
     "configurationDefaults": {

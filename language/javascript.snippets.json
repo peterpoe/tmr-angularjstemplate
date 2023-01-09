@@ -1,0 +1,7 @@
+{
+  "@ngInject": {
+    "prefix": "@ngInject",
+    "body": "/** @ngInject */$1",
+		"description": "Insert @ngInject annotation for AngularJS dependency injection"
+  }
+}
