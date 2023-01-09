@@ -7,9 +7,15 @@ const vscode = require("vscode");
 // import * as myExtension from '../../extension';
 suite('Extension Test Suite', () => {
     vscode.window.showInformationMessage('Start all tests.');
-    test('Sample test', () => {
-        assert.strictEqual(-1, [1, 2, 3].indexOf(5));
-        assert.strictEqual(-1, [1, 2, 3].indexOf(0));
+    test('@ngInject', async () => {
+        const doc = await vscode.workspace.openTextDocument({
+            language: 'javascript',
+        });
+        const editor = await vscode.window.showTextDocument(doc);
+        await editor.edit(textEdit => {
+            textEdit.insert(new vscode.Position(0, 0), 'ciao');
+        });
+        assert.strictEqual('ciao', doc.getText());
     });
 });
 //# sourceMappingURL=extension.test.js.map
