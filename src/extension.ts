@@ -145,12 +145,6 @@ const angularJSTemplateProvideDefinition = async function (
 }
 
 class AngularJSTemplateDefinitionProvider {
-  context: vscode.ExtensionContext
-
-  constructor(context: vscode.ExtensionContext) {
-    this.context = context
-  }
-
   async provideDefinition(
     document: vscode.TextDocument,
     position: vscode.Position,
@@ -175,12 +169,6 @@ class AngularJSTemplateDefinitionProvider {
 }
 
 class AngularJSDefinitionProvider {
-  context: vscode.ExtensionContext
-
-  constructor(context: vscode.ExtensionContext) {
-    this.context = context
-  }
-
   // Provide definitions for dependency injections
   async provideDefinition(
     document: vscode.TextDocument,
@@ -438,11 +426,11 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.languages.registerDefinitionProvider(
       'angularjstemplate',
-      new AngularJSTemplateDefinitionProvider(context)
+      new AngularJSTemplateDefinitionProvider()
     ),
     vscode.languages.registerDefinitionProvider(
       'javascript',
-      new AngularJSDefinitionProvider(context)
+      new AngularJSDefinitionProvider()
     ),
     vscode.languages.registerCompletionItemProvider(
       'javascript',
