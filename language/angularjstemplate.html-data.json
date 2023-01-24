@@ -941,6 +941,16 @@
       ]
     },
     {
+      "name": "ui-state",
+      "description": "[UI Router](https://ui-router.github.io/ng1/docs/latest/index.html) A directive which links to a state (and optionally, parameters with ui-state-params). When clicked, this directive activates the linked state with the supplied parameter values. The attribute value of ui-state is an expression which is watched and evaluated as the state to link to.",
+      "references": [
+        {
+          "name": "API Reference",
+          "url": "https://ui-router.github.io/ng1/docs/latest/modules/directives.html#uistatedirective"
+        }
+      ]
+    },
+    {
       "name": "translate",
       "description": "[Angular Translate](https://angular-translate.github.io/docs/#/guide) Translates given translation id either through attribute or DOM content. Internally it uses $translate service to translate the translation id. It possible to pass an optional `translate-values` object literal as string into translation id. TMR translation files are in `src/translations`.\n\nExamples:\n* Attribute: `<span translate>OPERATIONS.TAGINFO.TITLE</span>`\n* DOM content: `<span>{{'OPERATIONS.TAGINFO.TITLE' | translate}}</span>`\n* With values: `<span translate translate-values=\"{ count: 4 }\">OPERATIONS.TAGINFO.TITLE</span>`",
       "references": [
