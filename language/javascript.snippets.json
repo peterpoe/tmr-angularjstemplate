@@ -1,7 +1,45 @@
 {
   "@ngInject": {
-    "prefix": "@ngInject",
+    "prefix": ["@ngInject", "inject"],
     "body": "/** @ngInject */$1",
-		"description": "Insert @ngInject annotation for AngularJS dependency injection"
+    "description": "Insert @ngInject annotation for AngularJS dependency injection"
+  },
+  "ngComponent": {
+    "prefix": ["ngComponent", "component"],
+    "description": "Stylewhere + AngularJS Component",
+    "body": [
+      "/**",
+      " * Component for {@link routes.$1 $2 route}",
+      " * @type {ngComponent}",
+      " */",
+      "export const $1 = {",
+      "  ngType: 'component',",
+      "  templateUrl,",
+      "  controller: '$1Controller',",
+      "  bindings: {$3},",
+      "}"
+    ]
+  },
+  "ngController": {
+    "prefix": ["ngController", "controller"],
+    "description": "Stylewhere + AngularJS Controller",
+    "body": [
+      "/**",
+      " * Controller for component {@link $1}",
+      " * @type {ngController}",
+      " */",
+      "export class $1Controller {",
+      "  static ngType = 'controller'",
+      "",
+      "  /** @ngInject */ constructor($2) {",
+      "    this.$2 = $2$0",
+      "  }",
+      "",
+      "  \\$onInit() {",
+      "    ",
+      "  }",
+      "}",
+      ""
+    ]
   }
 }
