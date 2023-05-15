@@ -479,7 +479,7 @@ export async function activate(context: vscode.ExtensionContext) {
             )
           )
         ).toString()
-      ).config.brand as string)
+      ).config?.brand as string)
     : undefined
 
   context.subscriptions.push(
