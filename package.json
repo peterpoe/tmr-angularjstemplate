@@ -49,7 +49,8 @@
     "onLanguage:javascript"
   ],
   "capabilities": {
-    "definitionProvider": true
+    "definitionProvider": true,
+    "workspaceSymbolProvider": true
   },
   "contributes": {
     "html": {

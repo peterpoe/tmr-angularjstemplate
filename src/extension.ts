@@ -169,6 +169,12 @@ class AngularJSTemplateDefinitionProvider {
 }
 
 class AngularJSDefinitionProvider {
+  brand: string | undefined
+
+  constructor(brand: string | undefined) {
+    this.brand = brand
+  }
+
   // Provide definitions for dependency injections
   async provideDefinition(
     document: vscode.TextDocument,
@@ -181,37 +187,31 @@ class AngularJSDefinitionProvider {
 
     const symbolName = document.getText(wordRange)
 
-    // These are ng/ui router/angular material symbols,
-    // that are handled in hover
-    if (symbolName.startsWith('$')) {
+    // We only care about "core" and "brand" symbols
+    const isCore = symbolName.toLowerCase().startsWith('tmr')
+    const isBrand =
+      this.brand && symbolName.toLowerCase().startsWith(this.brand)
+
+    if (!isCore && !isBrand) {
       return
     }
 
+    // Injected in functions with /** @ngInject */ or 'ngInject'
     if (!isInjected(symbolName, document)) {
       return
     }
 
-    const symbols = (
-      await vscode.commands.executeCommand<vscode.SymbolInformation[]>(
-        'vscode.executeWorkspaceSymbolProvider',
-        symbolName
-      )
-    )
-      // We only care about exact matches
-      .filter(symbol => {
-        if (symbol.kind === vscode.SymbolKind.Function) {
-          return `${symbolName}()` === symbol.name
-        }
-        return symbolName === symbol.name
-      })
-      // Accept only symbols located in src/js (core) or src/app (customization)
+    const symbols = await vscode.commands.executeCommand<
+      vscode.SymbolInformation[]
+    >('vscode.executeWorkspaceSymbolProvider', symbolName)
+
+    // Only exact matches of "Files" registered by TmrWorkspaceSymbolProvider
+    return symbols
       .filter(
         symbol =>
-          symbol.location.uri.path.includes('/src/js/') ||
-          symbol.location.uri.path.includes('/src/app/')
+          symbolName === symbol.name && symbol.kind === vscode.SymbolKind.File
       )
-
-    return symbols.map(({ location }) => location)
+      .map(({ location }) => location)
   }
 }
 
@@ -422,7 +422,66 @@ class AngularJsCompletionItemProvider extends AngularJsExternalServices {
   }
 }
 
-export function activate(context: vscode.ExtensionContext) {
+class TmrWorkspaceSymbolProvider implements vscode.WorkspaceSymbolProvider {
+  brand: string | undefined
+
+  constructor(brand: string | undefined) {
+    this.brand = brand
+  }
+
+  public async provideWorkspaceSymbols(
+    query: string,
+    token: vscode.CancellationToken
+  ): Promise<vscode.SymbolInformation[] | null | undefined> {
+    let glob
+
+    if (this.brand && query.startsWith(this.brand)) {
+      glob = `**/src/app/**/${
+        camelcase(query.replace(new RegExp(`^${this.brand}`), '')) + '.js'
+      }`
+    } else if (query.startsWith('Tmr') || query.startsWith('tmr')) {
+      // tmrApiPrefix -> apiPrefix.js
+      // tmrRoutesProvider -> routes.js
+      const fileName =
+        camelcase(query.replace(/^[tT]mr/, '').replace(/Provider$/, '')) + '.js'
+      glob = `{**/src/js/**/${fileName},**/src/app/**/${fileName}}`
+    }
+
+    if (!glob) {
+      return null
+    }
+
+    const uris = await vscode.workspace.findFiles(glob, null, 1, token)
+
+    if (uris.length === 0) {
+      return null
+    }
+
+    return [
+      new vscode.SymbolInformation(
+        query,
+        vscode.SymbolKind.File,
+        '',
+        new vscode.Location(uris[0], new vscode.Position(0, 0))
+      ),
+    ]
+  }
+}
+
+export async function activate(context: vscode.ExtensionContext) {
+  // Extract brand name from package.json
+  const brand = vscode.workspace.workspaceFolders?.[0]
+    ? (JSON.parse(
+        (
+          await vscode.workspace.fs.readFile(
+            vscode.Uri.parse(
+              vscode.workspace.workspaceFolders[0].uri + '/package.json'
+            )
+          )
+        ).toString()
+      ).config.brand as string)
+    : undefined
+
   context.subscriptions.push(
     vscode.languages.registerDefinitionProvider(
       'angularjstemplate',
@@ -430,7 +489,7 @@ export function activate(context: vscode.ExtensionContext) {
     ),
     vscode.languages.registerDefinitionProvider(
       'javascript',
-      new AngularJSDefinitionProvider()
+      new AngularJSDefinitionProvider(brand)
     ),
     vscode.languages.registerCompletionItemProvider(
       'javascript',
@@ -439,6 +498,9 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.languages.registerHoverProvider(
       'javascript',
       new AngularJsHoverProvider()
+    ),
+    vscode.languages.registerWorkspaceSymbolProvider(
+      new TmrWorkspaceSymbolProvider(brand)
     )
   )
 }
