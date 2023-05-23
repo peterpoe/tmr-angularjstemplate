@@ -236,6 +236,7 @@ class AngularJsExternalServices {
     '$httpParamSerializer',
     '$httpParamSerializerJQLike',
     '$httpProvider',
+    '$injector',
     '$interpolate',
     '$interpolateProvider',
     '$interval',
@@ -301,6 +302,10 @@ class AngularJsExternalServices {
   static ngTranslateServices = ['$translate', '$translateProvider']
 
   getAngularJSDocumentation(symbolName: string) {
+    if (symbolName === '$injector') {
+      return `AngularJS Service: _$injector_  
+            https://docs.angularjs.org/api/auto/service/$injector`
+    }
     if (symbolName === '$scope') {
       return `AngularJS Service: _$scope_  
             https://docs.angularjs.org/guide/scope`
